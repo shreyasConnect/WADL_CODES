@@ -30,6 +30,27 @@
             </ul>
         </div>
     </nav>
+    <div class="col-12 border border-danger mx-3 my-3 d-flex justify-content-center">
+        <form id="contactForm">
+            <div>
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div>
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email" required>
+            </div>
+            <div>
+                <label for="message">Message:</label>
+                <textarea id="message" name="message" rows="4" required></textarea>
+            </div>
+            <div>
+                <button type="submit">Submit</button>
+            </div>
+        </form>
+    </div>
+
+    <div id="response"></div>
     <footer class="footer bg-dark text-white text-center py-3" style="position: absolute;
     bottom: 0;
     width: 100%;">
@@ -42,5 +63,24 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
     integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
     crossorigin="anonymous"></script>
+<script>
+    $(document).ready(function () {
+        $("#contactForm").submit(function (event) {
+            event.preventDefault(); // Prevent default form submission
+
+            // Get form data
+            var formData = $(this).serialize();
+
+            // Perform basic validation
+            var name = $("#name").val();
+            var email = $("#email").val();
+            var message = $("#message").val();
+
+            $("#response").html(name + ", your response was stored with email:" + email).css("color", "green");
+            // Clear form fields
+            $("#contactForm")[0].reset();
+        })
+    })
+</script>
 
 </html>
