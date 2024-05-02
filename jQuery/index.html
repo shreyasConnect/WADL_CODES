@@ -10,37 +10,6 @@
         integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
     <style>
         /* Define the shadow effect */
-        #college1 {
-            transition: box-shadow 1s ease-in-out;
-            /* Add transition for smooth effect */
-        }
-
-        #college1:hover {
-            box-shadow: 9px 9px 30px rgba(6, 235, 239, 0.5);
-            /* Apply shadow effect on hover */
-        }
-
-        /* Define the shadow effect */
-        #college2 {
-            transition: box-shadow 1s ease-in-out;
-            /* Add transition for smooth effect */
-        }
-
-        #college2:hover {
-            box-shadow: 9px 9px 30px rgba(6, 235, 239, 0.5);
-            /* Apply shadow effect on hover */
-        }
-
-        /* Define the underline effect */
-        #myHeading {
-            text-decoration: none;
-            /* Initially no underline */
-        }
-
-        #myHeading:hover {
-            text-decoration: underline;
-            /* Apply underline effect on hover */
-        }
     </style>
 </head>
 
@@ -69,12 +38,14 @@
         <h1 id="myHeading" class="text-primary text-center my-3 underline-on-hover">Pune Institute Of Computer
             Technology</h1>
         <div class="left col-5  mx-5 my-5">
-            <img src="College Building_02.jpg" alt="College 1" width="600px" height="300px" id="college1">
+            <img src="College Building_02.jpg" alt="College 1" width="600px" height="300px" id="myImage">
         </div>
         <div class="right col-5  mx-5 my-5">
-            <img src="College Photo 23 Feb 2023.jpg" alt="College 2" width="600px" height="300px" id="college2">
+            <img src="College Photo 23 Feb 2023.jpg" alt="College 2" width="600px" height="300px" id="myImage2">
         </div>
-        <button class="btn btn-outline-primary m-3" id="toggle" style="width: 80px;">Hide</button>
+        <div>
+            <button class="btn btn-outline-primary m-3" id="toggle" style="width: 80px;">Hide</button>
+        </div>
         <div class=" border border-warning p-3" id="hide_div">
 
             <h1 class="text-success m-3">Achievements</h1>
@@ -108,12 +79,25 @@
         });
 
         $("#myImage").hover(function () {
-            $(this).toggleClass("image-shadow"); // Toggle the CSS class to apply/remove shadow effect
+            $(this).css("box-shadow", "5px 5px 80px rgba(200, 250, 0, 0.5)");
+            $(this).css("cursor", "pointer"); // Apply shadow effect on hover
+        }, function () {
+            $(this).css("box-shadow", "none"); // Remove shadow effect when not hovered
+        });
+
+        $("#myImage2").hover(function () {
+            $(this).css("box-shadow", "5px 5px 80px rgba(0, 250, 0, 0.5)");
+            $(this).css("cursor", "pointer"); // Apply shadow effect on hover
+        }, function () {
+            $(this).css("box-shadow", "none"); // Remove shadow effect when not hovered
         });
 
         $("#myHeading").hover(function () {
-            $(this).toggleClass("underline-on-hover"); // Toggle the CSS class to apply/remove underline effect
+            $(this).css("text-decoration", "underline"); // Apply underline effect on hover
+        }, function () {
+            $(this).css("text-decoration", "none"); // Remove underline effect when not hovered
         });
+
 
     });
 </script>

@@ -12,11 +12,14 @@ users.forEach(function (user) {
     var row = document.createElement('tr');
     var idCell = document.createElement('td');
     var nameCell = document.createElement('td');
+    var dob = document.createElement("td");
 
     idCell.textContent = user.username;
     nameCell.textContent = user.name;
+    dob.textContent = user.dob;
 
     row.appendChild(idCell);
     row.appendChild(nameCell);
+    row.appendChild(dob);
     tableBody.appendChild(row);
 });

@@ -5,15 +5,13 @@ const Song = require('./SongModel.js');
 const cors = require('cors'); // Import the cors middleware
 
 
-
-
 dotenv.config();
 const app = express();
 
 // Use cors middleware
 app.use(cors());
 
-mongoose.connect(process.env.mongoURL).then(() => {
+mongoose.connect("mongodb://127.0.0.1:27017/music").then(() => {
     console.log("Connected to MongoDB!");
 }).catch((error) => {
     console.log("Error in connecting to MongoDB:", error);
